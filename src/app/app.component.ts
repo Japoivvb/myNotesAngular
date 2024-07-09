@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { AddNoteComponent } from './add-note/add-note.component';
 import { NotesListComponent } from './notes-list/notes-list.component';
@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
   title = 'My Notes App';
   user = 'John';
   surname = 'Doe';
@@ -21,6 +22,7 @@ export class AppComponent {
   isRed = false;
   items = ['apple', 'orange', 'banana'];
   name="jose"
+  router = inject(Router);
 
   change() {
     this.isRed = !this.isRed;
@@ -34,4 +36,14 @@ export class AppComponent {
   submit() {
     alert(this.name);
   }
+
+  navigate(num:number) {
+    if (num==1) {
+      this.router.navigateByUrl('/home');
+      
+    } else {
+      this.router.navigateByUrl('/contacts');
+      
+    }
+    }
 }

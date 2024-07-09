@@ -22,4 +22,15 @@
   input.ng-invalid {
     background-color: #f58c84;
   }
+  a button {
+    width: auto;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 10pt;
+    border: none;
+    text-decoration: none;
+  }
   

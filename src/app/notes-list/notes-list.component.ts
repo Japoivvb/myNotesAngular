@@ -3,11 +3,14 @@ import { NOTES } from '../notes';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup,FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { AddNoteComponent } from '../add-note/add-note.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-notes-list',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,RouterModule,AddNoteComponent,CommonModule],
   templateUrl: './notes-list.component.html',
   styleUrl: './notes-list.component.css'
 })

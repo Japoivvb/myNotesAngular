@@ -1,27 +1,26 @@
 <p>notes-list works!</p>
 <div class="container">
+  <a routerLink="/new"><button> Add new note</button></a> 
   <ul class="notes">
-    @for (note of notes; track note.id) {
-    <li>
-      <button (click)="show(note.title)">
-        <span class="note-title">{{ note.title }}</span>
-        <span class="note-text">{{ note.text }}</span>
+    <li *ngFor="let note of notes">
+      <button [routerLink]="['/note', note.id]">
+       <span class="note-title">{{ note.title }}</span>
+       <span class="note-text">{{ note.text }}</span>
       </button>
     </li>
-    }
   </ul>
 </div>
 <!-- link with formControl in class -->
-<form (submit)="showName()">
+<!-- <form (submit)="showName()">
   <input type="text" [formControl]="name" name="name" /> text after notes list
   <p>{{ name.value }}</p>in form control
   <input type="submit" value="Submit notes list"  />
 </form>
-<!-- form group -->
+ form group 
 <form [formGroup]="loginForm" (ngSubmit)="login()">
   <p><input type="text" formControlName="username" />user</p>
   <p><input type="text" formControlName="password" />password</p>
   <input type="submit" value="Submit login form" [disabled]="!loginForm.valid"/>
   <input type="button" value="Reset" (click)="loginForm.reset()">
 </form>
-<p>{{ loginForm.value.username }}</p>in form group<br/>
+<p>{{ loginForm.value.username }}</p>in form group<br/> -->

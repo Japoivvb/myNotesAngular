@@ -242,41 +242,7 @@
 <hr style="height:20px;border:none;color:#333;background-color:#333;">
 <!-- add a component -->
 <app-header></app-header>
-<!-- router component -->
 <router-outlet />
-<!-- root component -->
-<h1>Welcome, {{ user + ' ' + surname}}! </h1>
-<!-- bind a property -->
-<img [src]="imageURL" [alt]="imageAlt"/>
-<!-- bind property in a class and event -->
-<p [class.red]="isRed">some text for our page</p>
-<button (click)="change()">
-  Switch Background Color
-</button><br/>
-<!-- control flow, @for -->
-@for (item of items; track $index) {
-  {{ item }} <br/>}
-<!-- control flow, @if -->
-@if (isRed) {
-  <div>Red is true</div>
-  }
-  <hr style="height:20px;border:none;color:#333;background-color:#333;">
-  <!-- add a component -->
-<app-add-note></app-add-note>
-<hr style="height:20px;border:none;color:#333;background-color:#333;">
-<!-- add a component -->
-<app-notes-list></app-notes-list>
-<!-- add a form -->
-<label>Name: 
-  <input type="text" [(ngModel)]="name" />
-</label><br/>
-<p>{{ name }}</p>
-<!-- link method to button, form ... -->
-<button (click)="submit()">
-  Show name input
-</button><br/>
-<form (ngSubmit)="submit()" #myFormData="ngForm">
-  <input type="text" [(ngModel)]="name" name="name" required/>
-  <input type="submit" value="Submit" [disabled]="!myFormData.form.valid"/>
-</form>
+
+
 
