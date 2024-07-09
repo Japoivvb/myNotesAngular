@@ -242,6 +242,8 @@
 <hr style="height:20px;border:none;color:#333;background-color:#333;">
 <!-- add a component -->
 <app-header></app-header>
+<!-- router component -->
+<router-outlet />
 <!-- root component -->
 <h1>Welcome, {{ user + ' ' + surname}}! </h1>
 <!-- bind a property -->
@@ -277,4 +279,4 @@
   <input type="text" [(ngModel)]="name" name="name" required/>
   <input type="submit" value="Submit" [disabled]="!myFormData.form.valid"/>
 </form>
-<router-outlet />
+

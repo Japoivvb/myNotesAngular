@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { AddNoteComponent } from './add-note/add-note.component';
 import { NotesListComponent } from './notes-list/notes-list.component';
@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, NotesListComponent, FormsModule, AddNoteComponent],
+  imports: [RouterModule, RouterOutlet, HeaderComponent, NotesListComponent, FormsModule, AddNoteComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
