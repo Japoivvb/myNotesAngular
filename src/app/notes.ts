@@ -12,4 +12,8 @@ export const NOTES: Note[] = [
         id: 2,
         title: "take post",
         text: "go postoffice street 21"
+    },{
+        id: 3,
+        title: "go out the dog",
+        text: "feed at james park"
     }]

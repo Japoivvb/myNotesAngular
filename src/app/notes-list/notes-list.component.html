@@ -1,11 +1,36 @@
 <p>notes-list works!</p>
+<div class="card" style="width:300px">
+  <img class="card-img-top" src="assets/img/notes.gif" alt="Title" />
+  <div class="card-body">
+    <h4 class="card-title">you have {{ notes.length }} notes</h4>
+  </div>
+</div>
+<div class="row justify-content-center align-items-center">
+  <div class="col" *ngFor="let note of notes;index as i">
+    <div class="card mx-auto">
+      <div class="card-body">
+        <h3 class="card-title">Nº: {{ i }}</h3>
+        <!-- using index -->
+        <h4 class="card-title">{{ notes[i].title }}</h4>
+        <!-- using iterate item -->
+        <h6 class="card-title">{{ note.text }}</h6>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 <div class="container">
-  <a routerLink="/new"><button> Add new note</button></a> 
+  <a routerLink="/new"><button> Add new note</button></a>
   <ul class="notes">
     <li *ngFor="let note of notes">
       <button [routerLink]="['/note', note.id]">
-       <span class="note-title">{{ note.title }}</span>
-       <span class="note-text">{{ note.text }}</span>
+        <span class="note-title">{{ note.title }}</span>
+        <span class="note-text">{{ note.text }}</span>
       </button>
     </li>
   </ul>
