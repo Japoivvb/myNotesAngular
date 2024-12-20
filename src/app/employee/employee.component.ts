@@ -11,6 +11,9 @@ export class EmployeeComponent {
   name = "Juan";
   surname = "Diaz";
   age = 22;
-  company="IBM";
+  company = "IBM";
+
+  updateCompany(value: string) {
+  }
 
 }

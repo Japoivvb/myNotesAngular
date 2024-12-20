@@ -2,5 +2,8 @@
 <p>name: {{name}}</p>
 <p>surname: {{surname}}</p>
 <p>age: {{age}} , {{(age >= 18)? true : false}} </p>
-<p>company: {{company}}</p>
-
+<p>company: {{inputCompany.value}}</p>
+<br/>
+Insert company:
+<input type = "text" #inputCompany><br/>
+<input type="button" value="Send" (click)="updateCompany(inputCompany.value)"/>
