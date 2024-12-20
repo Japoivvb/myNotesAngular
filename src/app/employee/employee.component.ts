@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './employee.component.css'
 })
 export class EmployeeComponent {
+  name = "Juan";
+  surname = "Diaz";
+  age = 22;
+  company="IBM";
 
 }
