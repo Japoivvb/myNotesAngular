@@ -5,5 +5,8 @@
 <p>company: {{inputCompany.value}}</p>
 <br/>
 Insert company:
-<input type = "text" #inputCompany><br/>
-<input type="button" value="Send" (click)="updateCompany(inputCompany.value)"/>
+<input type = "text" #inputCompany [disabled]="companyName"><br/>
+<input type="button" value="Send" (click)="updateCompany(inputCompany.value)" />
+Registered:
+<input type="checkbox" id="register" [checked]="registered"/>
+{{getRegistered()}}

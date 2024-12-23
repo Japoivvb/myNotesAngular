@@ -13,7 +13,15 @@ export class EmployeeComponent {
   age = 22;
   company = "IBM";
 
+  companyName=false;
+  registered=false;
+
   updateCompany(value: string) {
+  }
+
+  getRegistered() {
+    // data from ddbb
+    this.registered=true
   }
 
 }
