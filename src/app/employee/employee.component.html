@@ -2,11 +2,14 @@
 <p>name: {{name}}</p>
 <p>surname: {{surname}}</p>
 <p>age: {{age}} , {{(age >= 18)? true : false}} </p>
-<p>company: {{inputCompany.value}}</p>
+<p>company: {{company}}</p>
 <br/><br/>
 Insert company:
-<input type = "text" #inputCompany [disabled]="companyName"><br/>
-<input type="button" value="Send" (click)="updateCompany(inputCompany.value)" /><br/><br/>
+<!-- <input type = "text" (input)="setCompany($event)"/> -->
+<input type = "text" [(ngModel)]="company"/>
+
+<!-- <input type = "text" #companyName (keyup)="updateCompany(companyName.value)" [disabled]="companyName"><br/> -->
+<!-- <input type="button" value="Send" (click)="showCompany()" /><br/><br/> -->
 {{registerText}}<br/>
 Registered:
 <input type="radio" name="register" id="register" value="true" [checked]="registered" (click)="setRegistered($event)"/>

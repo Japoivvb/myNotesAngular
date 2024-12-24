@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-employee',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.css'
 })
@@ -11,13 +12,18 @@ export class EmployeeComponent {
   name = "Juan";
   surname = "Diaz";
   age = 22;
-  company = "IBM";
+  company = "Acc";
 
   companyName = false;
   registered = false;
   registerText = "there is no user registered";
 
   updateCompany(value: string) {
+    this.company = value;
+  }
+
+  showCompany() {
+    alert(this.company)
   }
 
   getRegistered() {
@@ -35,6 +41,10 @@ export class EmployeeComponent {
       this.registerText = "there is no user registered";
 
     }
+  }
+  setCompany(event: Event) {
+    // data from ddbb
+    this.company = (<HTMLInputElement>event.target).value;
   }
 
 }
