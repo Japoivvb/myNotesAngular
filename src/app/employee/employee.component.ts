@@ -13,15 +13,28 @@ export class EmployeeComponent {
   age = 22;
   company = "IBM";
 
-  companyName=false;
-  registered=false;
+  companyName = false;
+  registered = false;
+  registerText = "there is no user registered";
 
   updateCompany(value: string) {
   }
 
   getRegistered() {
     // data from ddbb
-    this.registered=true
+    this.registered = false
+  }
+
+  setRegistered(event: Event) {
+    // data from ddbb
+    if ((<HTMLInputElement>event.target).value=="true") {
+      alert("the user has been registered");
+      this.registerText = "the user has been registered";
+
+    } else {
+      this.registerText = "there is no user registered";
+
+    }
   }
 
 }

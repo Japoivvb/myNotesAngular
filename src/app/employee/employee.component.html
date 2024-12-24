@@ -3,10 +3,13 @@
 <p>surname: {{surname}}</p>
 <p>age: {{age}} , {{(age >= 18)? true : false}} </p>
 <p>company: {{inputCompany.value}}</p>
-<br/>
+<br/><br/>
 Insert company:
 <input type = "text" #inputCompany [disabled]="companyName"><br/>
-<input type="button" value="Send" (click)="updateCompany(inputCompany.value)" />
+<input type="button" value="Send" (click)="updateCompany(inputCompany.value)" /><br/><br/>
+{{registerText}}<br/>
 Registered:
-<input type="checkbox" id="register" [checked]="registered"/>
+<input type="radio" name="register" id="register" value="true" [checked]="registered" (click)="setRegistered($event)"/>
+No Registered:
+<input type="radio" name="register" id="register"  value="false" [checked]="registered" (click)="setRegistered($event)"/><br/>
 {{getRegistered()}}
