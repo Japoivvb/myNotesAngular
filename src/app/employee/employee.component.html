@@ -25,3 +25,11 @@ No Registered:
 <ng-template #noRegister>
     <i>No users registered</i>
 </ng-template>
+<br /><br />
+<ul>
+    <li *ngFor="let department of departments; let i = index">
+        {{ department.skill}}
+        skill {{i+1}}
+      </li>
+</ul>
+

@@ -14,10 +14,23 @@ export class EmployeeComponent {
   surname = "Diaz";
   age = 22;
   company = "Acc";
+  departments: any[];
 
   companyName = false;
   registered = false;
   registerText = "there is no user registered";
+
+  constructor() {
+    this.departments = [
+      { skill: 'Backend' },
+      { skill: 'Frontend' },
+      { skill: 'Fullstack' },
+    ];
+  }
+
+  getDepartments(){     
+
+  }
 
   updateCompany(value: string) {
     this.company = value;
