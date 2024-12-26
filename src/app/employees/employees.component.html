@@ -1,4 +1,17 @@
 <p>employees works!</p>
 <h1 style="text-align: center;">Employees from company</h1>
-<!-- n employees -->
+<!-- 1 employee from component -->
 <app-employee></app-employee>
+<!-- n employees from class-->
+ <h1>Employee data from class</h1>
+ <div class="container">
+    <div *ngFor="let employee of employees;let i = index">
+        {{i+1}}
+        {{employee.name}}
+        {{employee.surname}}
+        {{employee.age}}
+        {{employee.company}}<br/>
+    </div>
+    
+ </div>
+ 

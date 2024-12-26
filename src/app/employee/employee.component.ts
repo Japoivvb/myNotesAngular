@@ -60,7 +60,7 @@ export class EmployeeComponent {
 
   register() {
     // alert("the user has been registered");  
-    this.registerText = "the user has been registered";
+    this.registerText = "the user has been updated";
     this.registered = true;
   }
 

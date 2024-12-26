@@ -1,4 +1,4 @@
-<h1>employee data</h1>
+<h1>Employee data from component</h1>
 <p>name: {{name}}</p>
 <p>surname: {{surname}}</p>
 <p>age: {{age}} , {{(age >= 18)? true : false}} </p>
@@ -18,18 +18,22 @@ No Registered:
     (click)="setRegistered($event)" /><br />
 <!-- {{getRegistered()}} -->
 <br /><br />
-<h1>Create employee company:</h1>
-<input type="text" [(ngModel)]="name" />
+<h1>Update employee company:</h1>
+
+Name: <input type="text" [(ngModel)]="name" />
+Surname: <input type="text" [(ngModel)]="surname" />
+Age: <input type="text" [(ngModel)]="age" />
+Company: <input type="text" [(ngModel)]="company" />
 <input type="submit" value="Register" (click)="register()" class="btn btn-primary" /><br /><br />
 <p *ngIf="registered; else noRegister">{{registerText}} with name {{name}}</p>
 <ng-template #noRegister>
     <i>No users registered</i>
 </ng-template>
+
 <br /><br />
 <ul>
     <li *ngFor="let department of departments; let i = index">
         {{ department.skill}}
         skill {{i+1}}
-      </li>
+    </li>
 </ul>
-
