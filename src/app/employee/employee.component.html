@@ -15,4 +15,9 @@ Registered:
 <input type="radio" name="register" id="register" value="true" [checked]="registered" (click)="setRegistered($event)"/>
 No Registered:
 <input type="radio" name="register" id="register"  value="false" [checked]="registered" (click)="setRegistered($event)"/><br/>
-{{getRegistered()}}
+<!-- {{getRegistered()}} -->
+<br/><br/>
+<h1>Create employee company:</h1>
+<input type = "text" [(ngModel)]="name"/>
+<input type="submit" value="Register" (click)="register()" class="btn btn-primary"/><br/><br/>
+<p *ngIf="registered">{{registerText}} with name {{name}}</p>

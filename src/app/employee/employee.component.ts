@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-employee',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.css'
 })
@@ -31,9 +32,10 @@ export class EmployeeComponent {
     this.registered = false
   }
 
+  // event binding
   setRegistered(event: Event) {
     // data from ddbb
-    if ((<HTMLInputElement>event.target).value=="true") {
+    if ((<HTMLInputElement>event.target).value == "true") {
       alert("the user has been registered");
       this.registerText = "the user has been registered";
 
@@ -42,9 +44,25 @@ export class EmployeeComponent {
 
     }
   }
+
+  register() {
+    // alert("the user has been registered");  
+    this.registerText = "the user has been registered";
+    this.registered = true;
+  }
+
+
+
   setCompany(event: Event) {
     // data from ddbb
     this.company = (<HTMLInputElement>event.target).value;
   }
+
+  setName(event: Event) {
+    // data from ddbb
+    this.name = (<HTMLInputElement>event.target).value;
+  }
+
+
 
 }
