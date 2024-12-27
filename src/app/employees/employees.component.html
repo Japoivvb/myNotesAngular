@@ -1,7 +1,5 @@
 <p>employees works!</p>
 <h1 style="text-align: center;">Employees from company</h1>
-<!-- 1 employee from component -->
-<app-employee></app-employee>
 <!-- n employees from class-->
 <h1>Employee data from class</h1>
 <div class="container">
@@ -33,16 +31,5 @@
         </div>
     </form>
 </div>
-
-<div class="container">
-    <div class="row">
-        <div *ngFor="let employee of employees;let i = index">
-            {{i+1}}
-            {{employee.name}}
-            {{employee.surname}}
-            <span [ngClass]="{underAge:employee.age<18}">{{employee.age}}</span>
-            <span [ngStyle]="{color:employee.company == 'BMW' ? 'red':'black'}">{{employee.company}}</span><br />
-        </div>
-    </div>
-
-</div>
+<!-- list employees in other component -->
+<app-employee *ngFor="let employee of employees;let i = index" [emp]="employee" [idx]="i"></app-employee>
