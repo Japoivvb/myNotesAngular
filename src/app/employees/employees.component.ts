@@ -23,7 +23,7 @@ export class EmployeesComponent {
   formCompany: string = "";
   
   employees: Employee[] = [
-    new Employee("Alan", "Arranz", 21, "Amazon"),
+    new Employee("Alan", "Arranz", 16, "Amazon"),
     new Employee("Biel", "Bonas", 22, "BMW"),
     new Employee("Cris", "Cruz", 23, "Celeritas")
   ];

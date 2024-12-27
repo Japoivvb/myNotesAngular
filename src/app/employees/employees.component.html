@@ -40,8 +40,8 @@
             {{i+1}}
             {{employee.name}}
             {{employee.surname}}
-            {{employee.age}}
-            {{employee.company}}<br />
+            <span [ngClass]="{underAge:employee.age<18}">{{employee.age}}</span>
+            <span [ngStyle]="{color:employee.company == 'BMW' ? 'red':'black'}">{{employee.company}}</span><br />
         </div>
     </div>
 
