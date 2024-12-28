@@ -1,12 +1,18 @@
 <!-- <h1>Employee data from model</h1> -->
 <div class="container">
     <div class="row">
-        <div >
+        <div>
             {{idx+1}}
             {{emp.name}}
             {{emp.surname}}
             <span [ngClass]="{underAge:emp.age<18}">{{emp.age}}</span>
             <span [ngStyle]="{color:emp.company == 'BMW' ? 'red':'black'}">{{emp.company}}</span><br />
+        </div>
+        <div>
+            <ul style="list-style: none;">
+                <li *ngFor="let detail of details">{{detail}}</li>
+            </ul>
+            <app-employee-detail (detail)="addDetail($event)"></app-employee-detail>
         </div>
     </div>
 </div>
