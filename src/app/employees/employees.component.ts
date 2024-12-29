@@ -4,6 +4,7 @@ import { EmployeeComponent } from '../employee/employee.component';
 import { Employee } from '../employee.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { EmployeeService } from '../employee.service';
 
 // decorator
 @Component({
@@ -28,11 +29,12 @@ export class EmployeesComponent {
     new Employee("Cris", "Cruz", 23, "Celeritas")
   ];
   
-  constructor() {
+  constructor(private employeeService:EmployeeService) {
   }
 
   addEmployee() {
      let employee= new Employee(this.formName,this.formSurname, this.formAge, this.formCompany);
+     this.employeeService.showMessage("Name: " + employee.name);
      this.employees.push(employee);
   }
 }
