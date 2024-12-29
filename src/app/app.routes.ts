@@ -16,6 +16,6 @@ export const routes: Routes = [
     {path: 'note/:id', component: NoteDetailComponent},//route with params
     {path: 'employees', component:EmployeesComponent},
     {path: 'contacts', component:ContactsComponent},
-    { path: '**', title: 'Page Not Found', component: NotFoundComponent },
+    { path: '**', title: 'Page Not Found', component: NotFoundComponent },// route custom error
 
 ];
