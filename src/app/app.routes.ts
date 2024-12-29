@@ -9,7 +9,7 @@ import { EmployeesComponent } from './employees/employees.component';
 
 export const routes: Routes = [
     // {path: '', component: NotesListComponent },
-    {path: '', component: EmployeesComponent },
+    {path: '', component: HomeComponent },
     {path: 'home', component:HomeComponent},
     {path: 'notes', component:NotesListComponent},
     {path: 'new', component: AddNoteComponent},

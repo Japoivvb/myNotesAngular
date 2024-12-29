@@ -34,11 +34,12 @@ export class AddNoteComponent {
         title: title,
         text: text,
       };
-      NOTES.unshift(newNote);
+      // NOTES.unshift(newNote); as first element
+      NOTES.unshift(newNote); // end of list
       this.addNoteForm.reset();
     }
-// navigate to home after add a note
-    this.router.navigateByUrl('/');
+  // navigate to notes list after add a note
+    this.router.navigateByUrl('/notes');
   }
 
 }
