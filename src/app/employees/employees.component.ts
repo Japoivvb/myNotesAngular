@@ -23,18 +23,16 @@ export class EmployeesComponent {
   formSurname: string = "";
   formCompany: string = "";
   
-  employees: Employee[] = [
-    new Employee("Alan", "Arranz", 16, "Amazon"),
-    new Employee("Biel", "Bonas", 22, "BMW"),
-    new Employee("Cris", "Cruz", 23, "Celeritas")
-  ];
-  
+  employees: Employee[] = [];
+
   constructor(private employeeService:EmployeeService) {
+    this.employees = this.employeeService.getEmployees();
   }
 
   addEmployee() {
      let employee= new Employee(this.formName,this.formSurname, this.formAge, this.formCompany);
      this.employeeService.showMessage("Name: " + employee.name);
-     this.employees.push(employee);
+     //this.employees.push(employee); moved to service
+     this.employeeService.addEmployee(employee);
   }
 }
