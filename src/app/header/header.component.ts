@@ -10,6 +10,6 @@ import { RouterModule } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  title = "My Notes header"
+  title = "My First Angular"
 
 }
