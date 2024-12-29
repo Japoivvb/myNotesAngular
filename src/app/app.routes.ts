@@ -13,7 +13,7 @@ export const routes: Routes = [
     {path: 'home', component:HomeComponent},
     {path: 'notes', component:NotesListComponent},
     {path: 'new', component: AddNoteComponent},
-    {path: 'note/:id', component: NoteDetailComponent},
+    {path: 'note/:id', component: NoteDetailComponent},//route with params
     {path: 'employees', component:EmployeesComponent},
     {path: 'contacts', component:ContactsComponent},
     { path: '**', title: 'Page Not Found', component: NotFoundComponent },

@@ -25,10 +25,11 @@
 </div>
 
 <div class="container">
-  <a routerLink="/new"><button> Add new note</button></a>
+  <a routerLink="/new"><button> Add new note</button></a><br/><br/>
   <ul class="notes">
     <li *ngFor="let note of notes">
-      <button [routerLink]="['/note', note.id]">
+      <!-- routing with params -->
+      <button class="btn btn-primary" [routerLink]="['/note', note.id]">
         <span class="note-title">{{ note.title }}</span>
         <span class="note-text">{{ note.text }}</span>
       </button>
