@@ -1,6 +1,27 @@
-<p>add-note works!</p>
-<form [formGroup]="addNoteForm" (ngSubmit)="addNote()">
-    <p><input type="text" formControlName="title" /> note title</p>
-    <p><input type="text" formControlName="text" /> note text </p>
-    <input type="submit" value="Submit" [disabled]="!addNoteForm.valid"/>
-  </form>
+<form [formGroup]="addNoteForm" (ngSubmit)="addNote()" class="p-4 border rounded shadow bg-light">
+  <h3 class="mb-3 text-center">Add a Note</h3>
+
+  <!-- Note Title -->
+  <div class="md-3">
+    <label for="noteTitle" class="form-label">Note Title</label>
+    <input type="text" id="noteTitle" formControlName="title" class="form-control" placeholder="Enter the note title" />
+    <div *ngIf="addNoteForm.get('title')?.invalid && addNoteForm.get('title')?.touched" class="text-danger mt-1">
+      Title is required.
+    </div>
+  </div>
+
+  <!-- Note Text -->
+  <div class="md-3">
+    <label for="noteText" class="form-label">Note Text</label>
+    <textarea id="noteText" formControlName="text" class="form-control" rows="4"
+      placeholder="Enter the note text"></textarea>
+    <div *ngIf="addNoteForm.get('text')?.invalid && addNoteForm.get('text')?.touched" class="text-danger mt-1">
+      Text is required.
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" class="btn btn-primary" [disabled]="!addNoteForm.valid">
+    Submit
+  </button>
+</form>

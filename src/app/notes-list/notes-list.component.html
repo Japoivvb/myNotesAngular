@@ -1,6 +1,8 @@
 <p>notes-list works!</p>
-<div style="text-align:center;">
-  <button class="btn btn-primary" (click)="goHome()" >Go Home</button>
+<div class="container">
+  <div style="text-align:center;">
+    <button class="btn btn-primary" (click)="goHome()">Go Home</button>
+  </div>
 </div>
 <div class="card" style="width:300px">
   <img class="card-img-top" src="assets/img/notes.gif" alt="Title" />
@@ -25,14 +27,22 @@
 </div>
 
 <div class="container">
-  <a routerLink="/new"><button> Add new note</button></a><br/><br/>
+  <a routerLink="/new"><button> Add new note</button></a><br /><br />
   <ul class="notes">
     <li *ngFor="let note of notes">
       <!-- routing with params -->
-      <button class="btn btn-primary" [routerLink]="['/note', note.id]">
-        <span class="note-title">{{ note.title }}</span>
-        <span class="note-text">{{ note.text }}</span>
-      </button>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-primary" [routerLink]="['/note', note.id]">
+            <span class="note-title">{{ note.title }}</span>
+            <span class="note-text">{{ note.text }}</span>
+          </button><br />
+          <a [routerLink]="['/note', note.id]" [queryParams]="{action:'u'}" ><button>
+              Modify</button></a>&nbsp;&nbsp;
+          <a [routerLink]="['/note', note.id]" [queryParams]="{action:'d'}" ><button>
+              Delete</button></a>
+        </div>
+      </div>
     </li>
   </ul>
 </div>

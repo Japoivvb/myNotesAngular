@@ -1,12 +1,11 @@
-<p>note-detail works!</p>
 @if (note) {
 <div id="note-container">
-    <span class="note-title">{{note.title}}</span>
-    <span class="note-id">ID: {{note.id}}</span>
-    <span class="note-text">{{note.text}}</span>
-  </div>
+  <span class="note-title">{{note.title}}</span>
+  <span class="note-id">ID: {{note.id}}</span>
+  <span class="note-text">{{note.text}}</span>
+</div>
 }
-<button class="btn btn-primary" (click)="removeNote()">Delete note</button><br/><br/>
-  <nav>
-    <button class="btn btn-primary" routerLink="/notes">Back to List</button>
-  </nav>
+<button class="btn btn-primary" (click)="actionNote()">Confirm</button><br /><br />
+<nav>
+  <button class="btn btn-primary" routerLink="/notes">Back to List</button>
+</nav>
