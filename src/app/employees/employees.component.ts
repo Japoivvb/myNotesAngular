@@ -31,8 +31,17 @@ export class EmployeesComponent {
 
   addEmployee() {
      let employee= new Employee(this.formName,this.formSurname, this.formAge, this.formCompany);
-     this.employeeService.showMessage("Name: " + employee.name);
      //this.employees.push(employee); moved to service
-     this.employeeService.addEmployee(employee);
+     //  this.employeeService.addEmployee(employee);
+     this.employeeService.addEmployee(employee).subscribe({
+       next:(result) =>{
+         console.log(result)
+         // to show confirmation message
+         this.employeeService.showMessage("Name: " + employee.name);
+      },
+      error:(error) =>{
+        console.error(error)
+      }
+    })
   }
 }
