@@ -56,4 +56,8 @@ export class EmployeesComponent {
       }
     })
   }
+
+  updateEmployee() {
+    //TODO
+  }
 }

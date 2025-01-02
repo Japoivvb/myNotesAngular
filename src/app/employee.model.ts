@@ -5,7 +5,7 @@ export class Employee{
     company:string="";
 
     constructor(name:string, surname:string, age:number, company:string){
-        this.name=name;
+        this.name=name;        
         this.surname=surname;
         this.age=age;
         this.company=company;
