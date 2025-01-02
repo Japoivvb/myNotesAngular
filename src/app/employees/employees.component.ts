@@ -26,13 +26,25 @@ export class EmployeesComponent {
   employees: Employee[] = [];
 
   constructor(private employeeService:EmployeeService) {
-    this.employees = this.employeeService.getEmployees();
+    // this.employees = this.employeeService.getEmployees();
+    this.employeeService.getEmployees().subscribe({
+      next:(result) =>{
+        console.log(result)
+        this.employees = Object.values(result);
+        // to show confirmation message
+        // this.employeeService.showMessage("Data loaded");
+     },
+     error:(error) =>{
+       console.error(error)
+     }
+   })
   }
 
   addEmployee() {
      let employee= new Employee(this.formName,this.formSurname, this.formAge, this.formCompany);
      //this.employees.push(employee); moved to service
      //  this.employeeService.addEmployee(employee);
+     this.employees.push(employee);
      this.employeeService.addEmployee(employee).subscribe({
        next:(result) =>{
          console.log(result)
