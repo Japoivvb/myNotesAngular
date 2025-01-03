@@ -28,12 +28,20 @@ export class EmployeesComponent {
   constructor(private employeeService:EmployeeService) {
     // this.employees = this.employeeService.getEmployees();
     this.employeeService.getEmployees().subscribe({
-      next:(result) =>{
-        console.log(result)
-        this.employees = Object.values(result);
-        // to show confirmation message
-        // this.employeeService.showMessage("Data loaded");
-     },
+      next: (result) => {
+        this.employees = Object.keys(result).map((key) => {
+          const employeeData = result[key];
+          const employee = new Employee(
+            employeeData.name,
+            employeeData.surname,
+            employeeData.age,
+            employeeData.company
+          );
+          employee.id = key; // Assign the Firebase key as the `id`
+          return employee;
+        });
+        // console.log('Transformed employees:', this.employees);
+      },
      error:(error) =>{
        console.error(error)
      }

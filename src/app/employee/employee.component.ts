@@ -44,7 +44,15 @@ export class EmployeeComponent {
     }
   }
 
-
-
-
+  deleteEmployee(){
+    this.employeeService.deleteEmployee(this.emp.id).subscribe({
+      next: () => {
+        alert(`Employee deleted`);
+      },
+      error: (err) => {
+        console.error('Error deleting employee', err);
+        alert('Failed to delete employee.');
+      },
+    });
+  }
 }
