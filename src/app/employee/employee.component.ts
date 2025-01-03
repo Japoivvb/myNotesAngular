@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Employee } from '../employee.model';
 import { EmployeeDetailComponent } from '../employee-detail/employee-detail.component';
 import { EmployeeService } from '../employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -18,7 +19,7 @@ export class EmployeeComponent {
 
   details = [];
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: EmployeeService, private router: Router) {}
 
   addDetail(detail: string) {
     this.details.push(detail);
@@ -48,6 +49,8 @@ export class EmployeeComponent {
     this.employeeService.deleteEmployee(this.emp.id).subscribe({
       next: () => {
         alert(`Employee deleted`);
+        // reload employees list
+        this.router.navigateByUrl('/');
       },
       error: (err) => {
         console.error('Error deleting employee', err);
