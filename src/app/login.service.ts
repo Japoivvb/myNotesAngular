@@ -1,0 +1,47 @@
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';// to redirect after login
+import { FirebaseApp, initializeApp } from "firebase/app"; // to authenticate in firebase
+// import { AngularFireAuth } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LoginService {
+
+  constructor(private router: Router) {
+
+  }
+
+  login(email: string, password: string) {
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDCdX3yxT17InhY_F2L0EQH7Bake3FQqZI",
+      authDomain: "myfirstangular-c52e8.firebaseapp.com",
+      databaseURL: "https://myfirstangular-c52e8-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "myfirstangular-c52e8",
+      storageBucket: "myfirstangular-c52e8.firebasestorage.app",
+      messagingSenderId: "1024909636336",
+      appId: "1:1024909636336:web:366532f1dd97b5057c8835"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    // Initialize Firebase Authentication and get a reference to the service
+    const auth = getAuth(app);
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // ...
+        this.router.navigateByUrl('/home');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert("Error login");
+      });
+  }  
+}

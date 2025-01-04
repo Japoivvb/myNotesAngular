@@ -6,10 +6,11 @@ import { AddNoteComponent } from './add-note/add-note.component';
 import { NotesListComponent } from './notes-list/notes-list.component';
 import { NoteDetailComponent } from './note-detail/note-detail.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
     // {path: '', component: NotesListComponent },
-    {path: '', component: HomeComponent },
+    {path: '', component: LoginComponent },
     {path: 'home', component:HomeComponent},
     {path: 'notes', component:NotesListComponent},
     {path: 'new', component: AddNoteComponent},

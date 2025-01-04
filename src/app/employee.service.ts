@@ -33,6 +33,7 @@ export class EmployeeService {
   }
   
   getEmployees():Observable<Array<Employee>>{
+    //TODO get data based in auth
     return this.httpClient.get<Array<Employee>>("https://myfirstangular-c52e8-default-rtdb.europe-west1.firebasedatabase.app/employees.json",{ headers: new HttpHeaders({ 'Content-Type': 'application/json' })});
     // return this.employees;
   }
