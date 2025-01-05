@@ -50,7 +50,8 @@ export class EmployeeComponent {
       next: () => {
         alert(`Employee deleted`);
         // reload employees list
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/employees');
+        window.location.reload();
       },
       error: (err) => {
         console.error('Error deleting employee', err);

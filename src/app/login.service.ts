@@ -3,6 +3,7 @@ import { Router } from '@angular/router';// to redirect after login
 import { FirebaseApp, initializeApp } from "firebase/app"; // to authenticate in firebase
 // import { AngularFireAuth } from 'firebase/auth';
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,10 @@ import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 export class LoginService {
   auth;
   app;
-  logged:boolean=false;
+  token;
+  logged: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private cookie: CookieService) {
     // Your web app's Firebase configuration
     const firebaseConfig = {
       apiKey: "AIzaSyDCdX3yxT17InhY_F2L0EQH7Bake3FQqZI",
@@ -37,7 +39,12 @@ export class LoginService {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        this.logged =true;
+        this.token = user.getIdToken();
+        console.log(this.token);
+        // save in cookie
+        this.cookie.set("token", this.token);
+        this.logged = true;
+        this.cookie.set("status", String(this.logged));
         // ...
         this.router.navigateByUrl('/home');
       })
@@ -46,24 +53,31 @@ export class LoginService {
         const errorMessage = error.message;
         alert("Error login");
       });
-  } 
-
-  logout(){
-    signOut(this.auth)
-    .then(() => {
-      // Signed out 
-      this.logged = false;
-      // ...
-      this.router.navigateByUrl('/home');
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert("Error logout");
-    });
   }
-  
-  islogged(){
-    return this.logged;
+
+  logout() {
+    signOut(this.auth)
+      .then(() => {
+        // Signed out 
+        this.logged = false;
+        this.token = "";
+        // destroy cookies
+        this.cookie.deleteAll();
+        // go to login page
+        this.router.navigateByUrl('/login');
+        // reload web
+        window.location.reload();
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert("Error logout");
+      });
+  }
+
+  islogged() {
+    // return this.logged;
+    const status = this.cookie.get("status");
+    return this.logged = status === "true";
   }
 }
