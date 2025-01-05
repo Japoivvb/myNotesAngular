@@ -7,7 +7,8 @@ import { NotesListComponent } from './notes-list/notes-list.component';
 import { NoteDetailComponent } from './note-detail/note-detail.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { LoginComponent } from './login/login.component';
-import { AuthGuardService } from './login/aut-guard.service';
+import { AuthGuardService } from './login/auth-guard.service';
+import { LoginGuardian } from './login/auth-guardfn.service';
 
 export const routes: Routes = [
     // {path: '', component: NotesListComponent },
@@ -17,7 +18,7 @@ export const routes: Routes = [
     {path: 'notes', component:NotesListComponent},
     {path: 'new', component: AddNoteComponent},
     {path: 'note/:id', component: NoteDetailComponent},//route with params
-    {path: 'employees', component:EmployeesComponent},
+    {path: 'employees', component:EmployeesComponent, canActivate: [LoginGuardian]},
     {path: 'contacts', component:ContactsComponent, canActivate: [AuthGuardService]},// protect page from logged
     { path: '**', title: 'Page Not Found', component: NotFoundComponent },// route custom error
 
