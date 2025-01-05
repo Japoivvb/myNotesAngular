@@ -27,30 +27,13 @@ export class AppComponent implements OnInit {
   name = "jose"
   router = inject(Router);
 
-  ngOnInit(): void {
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDCdX3yxT17InhY_F2L0EQH7Bake3FQqZI",
-      authDomain: "myfirstangular-c52e8.firebaseapp.com",
-      databaseURL: "https://myfirstangular-c52e8-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "myfirstangular-c52e8",
-      storageBucket: "myfirstangular-c52e8.firebasestorage.app",
-      messagingSenderId: "1024909636336",
-      appId: "1:1024909636336:web:366532f1dd97b5057c8835"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+  ngOnInit(): void {    
   }
 
   change() {
     this.isRed = !this.isRed;
     console.log(this.isRed);
-  }
-
-  login() {
-    alert('Welcome!');
-  }
+  }  
 
   submit() {
     alert(this.name);

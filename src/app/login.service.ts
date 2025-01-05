@@ -2,18 +2,17 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';// to redirect after login
 import { FirebaseApp, initializeApp } from "firebase/app"; // to authenticate in firebase
 // import { AngularFireAuth } from 'firebase/auth';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  auth;
+  app;
+  logged:boolean=false;
 
   constructor(private router: Router) {
-
-  }
-
-  login(email: string, password: string) {
     // Your web app's Firebase configuration
     const firebaseConfig = {
       apiKey: "AIzaSyDCdX3yxT17InhY_F2L0EQH7Bake3FQqZI",
@@ -26,15 +25,19 @@ export class LoginService {
     };
 
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+    this.app = initializeApp(firebaseConfig);
 
     // Initialize Firebase Authentication and get a reference to the service
-    const auth = getAuth(app);
+    this.auth = getAuth(this.app);
 
-    signInWithEmailAndPassword(auth, email, password)
+  }
+
+  login(email: string, password: string) {
+    signInWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
+        this.logged =true;
         // ...
         this.router.navigateByUrl('/home');
       })
@@ -43,5 +46,24 @@ export class LoginService {
         const errorMessage = error.message;
         alert("Error login");
       });
-  }  
+  } 
+
+  logout(){
+    signOut(this.auth)
+    .then(() => {
+      // Signed out 
+      this.logged = false;
+      // ...
+      this.router.navigateByUrl('/home');
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert("Error logout");
+    });
+  }
+  
+  islogged(){
+    return this.logged;
+  }
 }
